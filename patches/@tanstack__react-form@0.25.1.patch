@@ -1,0 +1,78 @@
+diff --git a/dist/cjs/nextjs/createServerValidate.cjs b/dist/cjs/nextjs/createServerValidate.cjs
+index a9456893aee66bc36db7331175cbac10b9857455..c017f805f056b236ba350b2cc3aaef9fc0ce068b 100644
+--- a/dist/cjs/nextjs/createServerValidate.cjs
++++ b/dist/cjs/nextjs/createServerValidate.cjs
+@@ -4,14 +4,17 @@ const decodeFormdata = require("decode-formdata");
+ const error = require("./error.cjs");
+ const createServerValidate = (defaultOpts) => async (formData, info) => {
+   const { validatorAdapter, onServerValidate } = defaultOpts;
+-  const runValidator = (propsValue) => {
++  const runValidator = async (propsValue) => {
+     if (validatorAdapter && typeof onServerValidate !== "function") {
+-      return validatorAdapter().validate(propsValue, onServerValidate);
++      return await validatorAdapter().validateAsync(
++        propsValue,
++        onServerValidate
++      );
+     }
+     return onServerValidate(propsValue);
+   };
+   const values = decodeFormdata.decode(formData, info);
+-  const onServerError = runValidator({ value: values });
++  const onServerError = await runValidator({ value: values });
+   if (!onServerError)
+     return;
+   const formState = {
+diff --git a/dist/esm/nextjs/createServerValidate.js b/dist/esm/nextjs/createServerValidate.js
+index 665bc76105c1f85e3556b3d32e5bbd4242429180..427b33d73da583d08723e8cebea8654ae32fb954 100644
+--- a/dist/esm/nextjs/createServerValidate.js
++++ b/dist/esm/nextjs/createServerValidate.js
+@@ -2,14 +2,17 @@ import { decode } from "decode-formdata";
+ import { ServerValidateError } from "./error.js";
+ const createServerValidate = (defaultOpts) => async (formData, info) => {
+   const { validatorAdapter, onServerValidate } = defaultOpts;
+-  const runValidator = (propsValue) => {
++  const runValidator = async (propsValue) => {
+     if (validatorAdapter && typeof onServerValidate !== "function") {
+-      return validatorAdapter().validate(propsValue, onServerValidate);
++      return await validatorAdapter().validateAsync(
++        propsValue,
++        onServerValidate
++      );
+     }
+     return onServerValidate(propsValue);
+   };
+   const values = decode(formData, info);
+-  const onServerError = runValidator({ value: values });
++  const onServerError = await runValidator({ value: values });
+   if (!onServerError)
+     return;
+   const formState = {
+diff --git a/src/nextjs/createServerValidate.ts b/src/nextjs/createServerValidate.ts
+index 13154c9754b9f2b02aeb739ed42d36425564beb4..aea645c58807c04837345d2631158a479a4d31f0 100644
+--- a/src/nextjs/createServerValidate.ts
++++ b/src/nextjs/createServerValidate.ts
+@@ -30,9 +30,12 @@ export const createServerValidate =
+   async (formData: FormData, info?: Parameters<typeof decode>[1]) => {
+     const { validatorAdapter, onServerValidate } = defaultOpts
+ 
+-    const runValidator = (propsValue: { value: TFormData }) => {
++    const runValidator = async (propsValue: { value: TFormData }) => {
+       if (validatorAdapter && typeof onServerValidate !== 'function') {
+-        return validatorAdapter().validate(propsValue, onServerValidate)
++        return await validatorAdapter().validateAsync(
++          propsValue,
++          onServerValidate,
++        )
+       }
+ 
+       return (onServerValidate as OnServerValidateFn<TFormData>)(propsValue)
+@@ -40,7 +43,7 @@ export const createServerValidate =
+ 
+     const values = decode(formData, info) as never as TFormData
+ 
+-    const onServerError = runValidator({ value: values })
++    const onServerError = await runValidator({ value: values })
+ 
+     if (!onServerError) return
+ 

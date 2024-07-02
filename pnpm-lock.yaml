@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@tanstack/react-form@0.25.1':
+    hash: eir2g6udhktah75fwk6wtv4d3u
+    path: patches/@tanstack__react-form@0.25.1.patch
+
 importers:
 
   .:
@@ -94,7 +99,7 @@ importers:
         version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
       '@tanstack/react-form':
         specifier: ^0.25.1
-        version: 0.25.1(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)
+        version: 0.25.1(patch_hash=eir2g6udhktah75fwk6wtv4d3u)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)
       '@tanstack/zod-form-adapter':
         specifier: ^0.25.1
         version: 0.25.1(zod@3.23.8)
@@ -4081,7 +4086,7 @@ snapshots:
     dependencies:
       '@tanstack/store': 0.5.3
 
-  '@tanstack/react-form@0.25.1(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)':
+  '@tanstack/react-form@0.25.1(patch_hash=eir2g6udhktah75fwk6wtv4d3u)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)':
     dependencies:
       '@remix-run/node': 2.10.0(typescript@5.5.2)
       '@tanstack/form-core': 0.25.1

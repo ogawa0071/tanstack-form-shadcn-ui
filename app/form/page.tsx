@@ -50,8 +50,9 @@ export default function Form() {
               name="firstName"
               validatorAdapter={zodValidator()}
               validators={{
-                onChange: schema.shape.firstName,
+                onChangeAsync: schema.shape.firstName,
               }}
+              asyncDebounceMs={500}
             >
               {(field) => (
                 <FormItem

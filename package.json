@@ -70,5 +70,10 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.4.0",
+  "pnpm": {
+    "patchedDependencies": {
+      "@tanstack/react-form@0.25.1": "patches/@tanstack__react-form@0.25.1.patch"
+    }
+  }
 }
