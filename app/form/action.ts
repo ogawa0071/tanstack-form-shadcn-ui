@@ -4,7 +4,8 @@ import {
   ServerValidateError,
   createServerValidate,
 } from "@tanstack/react-form/nextjs";
-import { formOpts } from "./schema";
+import { redirect } from "next/navigation";
+import { formOpts } from "./shared-code";
 
 const serverValidate = createServerValidate({
   ...formOpts,
@@ -30,5 +31,5 @@ export default async function someAction(prev: unknown, formData: FormData) {
   // Your form has successfully validated!
   console.log(formData.get("firstName"));
 
-  return formData;
+  redirect("/");
 }
