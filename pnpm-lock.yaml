@@ -93,8 +93,11 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
       '@tanstack/react-form':
-        specifier: ^0.25.0
-        version: 0.25.0(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)
+        specifier: ^0.25.1
+        version: 0.25.1(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)
+      '@tanstack/zod-form-adapter':
+        specifier: ^0.25.1
+        version: 0.25.1(zod@3.23.8)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -1322,11 +1325,11 @@ packages:
   '@swc/helpers@0.5.11':
     resolution: {integrity: sha512-YNlnKRWF2sVojTpIyzwou9XoTNbzbzONwRhOoniEioF1AtaitTvVZblaQRrAzChWQ1bLYyYSWzM18y4WwgzJ+A==}
 
-  '@tanstack/form-core@0.25.0':
-    resolution: {integrity: sha512-vpJuRLeYyReD6/0xcXJyI5ciS3WJG02UCxdfJB+C34BmgVM1XH5W015H9zkmozE8I+EjYpksYw+t/T54UZTvMg==}
+  '@tanstack/form-core@0.25.1':
+    resolution: {integrity: sha512-dMeJigLGBvVdSvvh49X/xx6rvVbtgG7Gc1LBwOrgaNTKiTcqVtfRwhCLkGo0IHeFL/oInTSbdeAxF/DE8mmAqQ==}
 
-  '@tanstack/react-form@0.25.0':
-    resolution: {integrity: sha512-fiX1a5QAcyy35uVBHl3aqGDplMKJBwFoBJhc4f6v4LghdzKb6VI9QKn/dIHhG1z9G1DLxJGNkbSYOeipsMdOlw==}
+  '@tanstack/react-form@0.25.1':
+    resolution: {integrity: sha512-lWRUJDraOLk9N6JP2KXDlK7hseA+UGh03Q4/3IozZ0X7yxvV93mH5R2k20yfHuYRHpoUB8Vafz8EQgrl2FP2yw==}
     peerDependencies:
       '@tanstack/start': ^1.40.1
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -1342,6 +1345,11 @@ packages:
 
   '@tanstack/store@0.5.3':
     resolution: {integrity: sha512-bEITONJbnuUj37cIKusJH6tyRyg4kQP8thUr0Wq/gQ58dKirBGC0RaUykZXbQKr2WIJJ0q0XLoaY5Azf8y1RXw==}
+
+  '@tanstack/zod-form-adapter@0.25.1':
+    resolution: {integrity: sha512-mbQKl9rSVjHZhYAASwt6+k1OLOqhM29n9jyRzOO7q4oddhXXuAjAskFOL/epitqA5cfFVLw4ZayGqSxAc4FMZA==}
+    peerDependencies:
+      zod: ^3.x
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
@@ -4069,14 +4077,14 @@ snapshots:
     dependencies:
       tslib: 2.6.3
 
-  '@tanstack/form-core@0.25.0':
+  '@tanstack/form-core@0.25.1':
     dependencies:
       '@tanstack/store': 0.5.3
 
-  '@tanstack/react-form@0.25.0(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)':
+  '@tanstack/react-form@0.25.1(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.2)':
     dependencies:
       '@remix-run/node': 2.10.0(typescript@5.5.2)
-      '@tanstack/form-core': 0.25.0
+      '@tanstack/form-core': 0.25.1
       '@tanstack/react-store': 0.5.3(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
       decode-formdata: 0.7.5
       react: 19.0.0-rc-f994737d14-20240522
@@ -4092,6 +4100,11 @@ snapshots:
       use-sync-external-store: 1.2.2(react@19.0.0-rc-f994737d14-20240522)
 
   '@tanstack/store@0.5.3': {}
+
+  '@tanstack/zod-form-adapter@0.25.1(zod@3.23.8)':
+    dependencies:
+      '@tanstack/form-core': 0.25.1
+      zod: 3.23.8
 
   '@types/cookie@0.6.0': {}
 

@@ -20,23 +20,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { mergeForm, useForm, useTransform } from "@tanstack/react-form";
 import { initialFormState } from "@tanstack/react-form/nextjs";
+import { zodValidator } from "@tanstack/zod-form-adapter";
 import { AlertCircle } from "lucide-react";
 import { useActionState } from "react";
-import { z } from "zod";
 import someAction from "./action";
-import { formOpts } from "./shared-code";
-
-const FormSchema = z.object({
-  firstName: z.string().min(2, {
-    message: "First Name must be at least 2 characters.",
-  }),
-});
+import { schema } from "./shared-code";
 
 export default function Form() {
   const [state, action] = useActionState(someAction, initialFormState);
 
   const form = useForm({
-    ...formOpts,
     transform: useTransform((baseForm) => mergeForm(baseForm, state), [state]),
   });
 
@@ -55,11 +48,9 @@ export default function Form() {
           <CardContent className="grid gap-4">
             <form.Field
               name="firstName"
+              validatorAdapter={zodValidator()}
               validators={{
-                onChange: ({ value }) =>
-                  value.length < 2
-                    ? "First Name must be at least 2 characters."
-                    : undefined,
+                onChange: schema.shape.firstName,
               }}
             >
               {(field) => (

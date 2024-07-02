@@ -4,16 +4,14 @@ import {
   ServerValidateError,
   createServerValidate,
 } from "@tanstack/react-form/nextjs";
+import { zodValidator } from "@tanstack/zod-form-adapter";
 import { redirect } from "next/navigation";
-import { formOpts } from "./shared-code";
+import { serverSchema } from "./shared-code";
 
 const serverValidate = createServerValidate({
-  ...formOpts,
-  onServerValidate: ({ value }) => {
-    if (value.firstName !== "shadcn") {
-      return "Server validation: You must be shadcn";
-    }
-  },
+  validatorAdapter: zodValidator(),
+  // https://github.com/TanStack/form/blob/v0.25.1/packages/react-form/src/nextjs/createServerValidate.ts#L34-L36
+  onServerValidate: serverSchema as any,
 });
 
 export default async function someAction(prev: unknown, formData: FormData) {
