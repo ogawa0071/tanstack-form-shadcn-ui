@@ -10,8 +10,7 @@ import { serverSchema } from "./shared-code";
 
 const serverValidate = createServerValidate({
   validatorAdapter: zodValidator(),
-  // https://github.com/TanStack/form/blob/v0.25.1/packages/react-form/src/nextjs/createServerValidate.ts#L34-L36
-  onServerValidate: serverSchema as any,
+  onServerValidate: serverSchema,
 });
 
 export default async function someAction(prev: unknown, formData: FormData) {

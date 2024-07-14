@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@tanstack/react-form@0.26.4':
-    hash: jcb3mt6gdcxzemvi2ijxddel6y
+    hash: 2g3tm4m5p73talnercm52v6mii
     path: patches/@tanstack__react-form@0.26.4.patch
 
 importers:
@@ -96,7 +96,7 @@ importers:
         version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
       '@tanstack/react-form':
         specifier: ^0.26.4
-        version: 0.26.4(patch_hash=jcb3mt6gdcxzemvi2ijxddel6y)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.3)
+        version: 0.26.4(patch_hash=2g3tm4m5p73talnercm52v6mii)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.3)
       '@tanstack/zod-form-adapter':
         specifier: ^0.26.4
         version: 0.26.4(zod@3.23.8)
@@ -4061,7 +4061,7 @@ snapshots:
     dependencies:
       '@tanstack/store': 0.5.5
 
-  '@tanstack/react-form@0.26.4(patch_hash=jcb3mt6gdcxzemvi2ijxddel6y)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.3)':
+  '@tanstack/react-form@0.26.4(patch_hash=2g3tm4m5p73talnercm52v6mii)(react-dom@19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)(typescript@5.5.3)':
     dependencies:
       '@remix-run/node': 2.10.2(typescript@5.5.3)
       '@tanstack/form-core': 0.26.4
