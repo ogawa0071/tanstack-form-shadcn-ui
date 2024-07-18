@@ -26,7 +26,8 @@ export default async function someAction(prev: unknown, formData: FormData) {
   }
 
   // Your form has successfully validated!
-  console.log(formData.get("firstName"));
+  const data = await serverSchema.parseAsync(Object.fromEntries(formData.entries()));
+  console.log(data);
 
   redirect("/");
 }
